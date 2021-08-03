@@ -143,6 +143,8 @@ def _nonnull_coder_from_type(field_type):
         _coder_from_type(field_type.map_type.value_type))
   elif type_info == "row_type":
     return RowCoder(field_type.row_type.schema)
+  elif type_info == "logical_type":
+    return StrUtf8Coder()
 
   # The Java SDK supports several more types, but the coders are not yet
   # standard, and are not implemented in Python.
